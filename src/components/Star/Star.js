@@ -36,7 +36,7 @@ class Star extends Component {
     }
 
     handleClick = () => {
-        console.log(this.state)
+        console.log(this.state.stars)
     }
 
     render() {
