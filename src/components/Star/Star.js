@@ -6,19 +6,46 @@ class Star extends Component {
         super(props)
 
         this.state = {
-            star: {
+            stars: {
                 name: '',
-                role: ''
+                role: '',
             }
         }
+    }
+
+    handleNameChange = (event) => {
+        console.log(event.target.value);
+
+        this.setState({
+            stars: {
+                ...this.state.stars,
+                name: event.target.value,
+            }
+        })
+    }
+
+    handleRoleChange = (event) => {
+        console.log(event.target.value);
+
+        this.setState({
+            stars: {
+                ...this.state.stars,
+                role: event.target.value
+            }
+        })
+    }
+
+    handleClick = () => {
+        console.log(this.state)
     }
 
     render() {
         return (
             <div>
-                <input placeholder="name"/>
-                <input placeholder="role"/>
-                <button>Submit</button>
+                <p> {this.state.stars.name} is Famous for {this.state.stars.role} </p>
+                <input type="text" onChange={this.handleNameChange} />
+                <input type="text" onChange={this.handleRoleChange} />
+                <button onClick={this.handleClick}>Submit</button>
             </div>
         )
     }

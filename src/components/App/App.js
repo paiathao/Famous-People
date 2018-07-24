@@ -9,8 +9,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <p className="App-intro">
-        <Star />
         </p>
+        <Star/>
       </div>
     );
   }
