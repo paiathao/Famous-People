@@ -23,40 +23,30 @@ class Star extends Component {
         })
     }
 
-    // handleNameChange = (event) => {
-    //     console.log(event.target.value);
-
-    //     this.setState({
-    //         stars: {
-    //             ...this.state.stars,
-    //             name: event.target.value,
-    //         }
-    //     })
-    // }
-
-    // handleRoleChange = (event) => {
-    //     console.log(event.target.value);
-
-    //     this.setState({
-    //         stars: {
-    //             ...this.state.stars,
-    //             role: event.target.value
-    //         }
-    //     })
-    // }
-
-    handleClick = () => {
+    handleClick = (event) => {
         console.log(this.state.stars)
+
+        event.preventDefault();
+
+        this.setState({
+            stars: {
+                name: '',
+                role: '',
+                popularity: ''
+            }
+        })
     }
 
     render() {
         return (
-            <div>
+            <div onSubmit={this.handleClick}>
                 <p> {this.state.stars.name} is Famous for {this.state.stars.role} </p>
-                <input type="text" onChange={this.handleChangeFor('name')} />
-                <input type="text" onChange={this.handleChangeFor('role')} />
-                <input type="text" onChange={this.handleChangeFor('popularity')} />
-                <button onClick={this.handleClick}>Submit</button>
+                <form>
+                <input value={this.state.stars.name} type="text" onChange={this.handleChangeFor('name')} />
+                <input value={this.state.stars.role} type="text" onChange={this.handleChangeFor('role')} />
+                <input value={this.state.stars.popularity} type="text" onChange={this.handleChangeFor('popularity')} />
+                <input type="submit" />
+                </form>
             </div>
         )
     }
